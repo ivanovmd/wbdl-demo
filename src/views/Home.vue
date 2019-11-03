@@ -1,18 +1,41 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <PostsList :posts="posts" :users="users"></PostsList>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import store from "@/store";
+import { mapGetters } from "vuex";
+import { GET_POSTS } from "../store/actions.type";
+import PostsList from "../components/PostsList.vue";
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  name: "home",
+  components: { PostsList },
+  created() {
+    store.dispatch(GET_POSTS);
+  },
+  data() {
+    return {
+      postsPage: 0,
+      postsPerPage: 5
+    };
+  },
+  computed: {
+    ...mapGetters(["users", "posts", "userById"])
   }
-}
+};
 </script>
+<style lang="scss" scoped>
+.posts {
+  margin: auto;
+}
+.post {
+  margin-bottom: 1rem;
+}
+
+.current-page {
+  padding: 0 1rem;
+}
+</style>
