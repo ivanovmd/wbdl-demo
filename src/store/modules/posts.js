@@ -58,8 +58,10 @@ const actions = {
     const posts = await apiServce.getPosts(userId);
     commit("setPosts", { posts });
   },
-  async [UPDATE_POST]({ commit }, id) {
-    const post = await apiServce.updatePost(id);
+  async [UPDATE_POST]({ commit }, data) {
+    console.log(data);
+    
+    const post = await apiServce.updatePost(data.id, data);
     commit("setPost", post);
   },
   async [DELETE_POST]({ commit }, id) {

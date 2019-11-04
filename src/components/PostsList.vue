@@ -2,8 +2,8 @@
   <section v-if="posts.length" class="posts">
     <Post
       class="post"
-      v-for="post in visiblePosts"
-      v-bind:key="post.id"
+      v-for="(post, i) in visiblePosts"
+      v-bind:key="i"
       v-bind="post"
       :user="users[post.userId]"
     ></Post>

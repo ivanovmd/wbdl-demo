@@ -3,7 +3,10 @@
     <div v-if="user" class="username">
       <span v-if="user.id">
         by:
-        <router-link class="has-text-primary" :to="{name: 'user', params: {id: user.id}}">@{{ user.name }}</router-link>
+        <router-link
+          class="has-text-primary"
+          :to="{name: 'user', params: {id: user.id}}"
+        >@{{ user.name }}</router-link>
       </span>
     </div>
 
