@@ -24,7 +24,7 @@
       ></GmapMap>
       <p
         class="is-size-7 has-text-danger"
-      >(The map will show error message decause Billing is not enabled for this Goolge Maps Api Key)</p>
+      >(The map will show an error message because Billing is not enabled for this Goolge Maps Account)</p>
     </div>
 
     <div class="column">

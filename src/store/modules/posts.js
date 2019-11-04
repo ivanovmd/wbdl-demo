@@ -59,8 +59,6 @@ const actions = {
     commit("setPosts", { posts });
   },
   async [UPDATE_POST]({ commit }, data) {
-    console.log(data);
-    
     const post = await apiServce.updatePost(data.id, data);
     commit("setPost", post);
   },
