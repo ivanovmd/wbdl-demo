@@ -2,7 +2,7 @@
 
 A a demo VueJS app. 
 Used https://jsonplaceholder.typicode.com/ API.
-You can change Logged in user to update posts.
+You can change Logged in user to edit posts.
 
 ## Project setup
 ```
