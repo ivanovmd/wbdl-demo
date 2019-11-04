@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="post">
     <div v-if="user.id == currentUserId">
       <h3 class="title is-3">Edit post:</h3>
 
@@ -32,6 +32,10 @@
       </div>
     </div>
   </div>
+
+  <div v-else>
+    <h4 class="title is-4 has-text-grey-light">Undefined Post</h4>
+  </div>
 </template>
 
 <script>
@@ -59,8 +63,10 @@ export default {
     }
   },
   created() {
-    this.title = this.post.title;
-    this.body = this.post.body;
+    if (this.post) {
+      this.title = this.post.title;
+      this.body = this.post.body;
+    }
   },
   computed: {
     ...mapGetters(["userById", "postById", "commentsByPostId", 'currentUserId']),

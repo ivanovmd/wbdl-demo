@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import User from "../views/User";
 import Post from "../views/Post";
+import NotFound from '../views/404'
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,10 @@ const routes = [
     path: "/posts/:id",
     name: "post",
     component: Post
+  },
+  {
+    path: '*',
+    component: NotFound
   }
 ];
 
