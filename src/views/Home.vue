@@ -13,8 +13,8 @@ import PostsList from "../components/PostsList.vue";
 export default {
   name: "home",
   components: { PostsList },
-  created() {
-    store.dispatch(GET_POSTS);
+  beforeRouteEnter(to, from, next) {
+    store.dispatch(GET_POSTS).then(() => next());
   },
   data() {
     return {
