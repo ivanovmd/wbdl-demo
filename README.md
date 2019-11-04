@@ -1,5 +1,9 @@
 # wbdl
 
+A a demo VueJS app. 
+Used https://jsonplaceholder.typicode.com/ API.
+You can change Logged in user to update posts.
+
 ## Project setup
 ```
 npm install

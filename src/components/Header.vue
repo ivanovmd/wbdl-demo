@@ -9,7 +9,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <label for="users" class="has-text-grey">Current User:</label>
+          <label for="users" class="has-text-grey">Logged in as:</label>
           <div class="select is-primary">
             <select name="users" id="users" v-model="selectedUserId">
               <option v-for="(user, i) of users" v-bind:key="i" :value="user.id">{{user.name}}</option>

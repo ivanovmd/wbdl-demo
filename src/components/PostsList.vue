@@ -71,7 +71,7 @@ export default {
     search(event) {
       const value = event.target.value;
       this.localPosts = this.posts.filter(post => {
-        if ((post.title).toLowerCase().includes(value.toLowerCase())) return post;
+        if (post.title.toLowerCase().includes(value.toLowerCase())) return post;
       });
     }
   }
