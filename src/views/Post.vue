@@ -12,14 +12,21 @@
         <textarea class="textarea" placeholder="Post body" v-model="body"></textarea>
       </div>
       <button :disabled="!title || !body" @click="updatePost" class="button is-primary">Save post</button>
+
+      <br />
+      <p
+        class="notification is-warning is-size-7"
+      >Server will bounce back the value. It will not be actually saved.</p>
     </div>
 
     <div v-else>
       <h1 class="title is-3">{{post.title | capitalize}}</h1>
-      <router-link
-        class="has-text-primary"
-        :to="{name: 'user', params: {id: user.id}}"
-      >@{{ user.name }}</router-link>
+      <div class="username">
+        <router-link
+          class="has-text-primary"
+          :to="{name: 'user', params: {id: user.id}}"
+        >@{{ user.name }}</router-link>
+      </div>
       <p>{{post.body}}</p>
     </div>
 
@@ -69,7 +76,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["userById", "postById", "commentsByPostId", 'currentUserId']),
+    ...mapGetters([
+      "userById",
+      "postById",
+      "commentsByPostId",
+      "currentUserId"
+    ]),
     id() {
       return parseInt(this.$router.currentRoute.params.id);
     },
@@ -122,6 +134,14 @@ export default {
 }
 
 .post-edit-field {
-  margin-bottom: 1.5rem
+  margin-bottom: 1.5rem;
+}
+
+.notification {
+  margin-top: 1rem;
+}
+
+.username {
+  margin-bottom: 1rem;
 }
 </style>

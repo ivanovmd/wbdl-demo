@@ -23,8 +23,8 @@
         map-type-id="terrain"
       ></GmapMap>
       <p
-        class="is-size-7 has-text-danger"
-      >(The map will show an error message because Billing is not enabled for this Goolge Maps Account)</p>
+        class="notification is-warning is-size-7"
+      >(The map will show an error message because Billing is not enabled for this Goolge Maps API Account)</p>
     </div>
 
     <div class="column">
