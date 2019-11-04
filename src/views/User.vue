@@ -1,32 +1,41 @@
 <template>
-  <div class="columns">
-    <div v-if="user">
-      <div class="column is-one-third">
-        <h3 class="title is-3">{{ user.name }} <span class="has-text-primary" v-if="user.id == currentUserId">(You)</span></h3>
-        <p class="subtitle has-text-grey">aka: {{user.username}}</p>
+  <div v-if="user" class="columns">
+    <div class="column is-one-third">
+      <h3 class="title is-3">
+        {{ user.name }}
+        <span class="has-text-primary" v-if="user.id == currentUserId">(You)</span>
+      </h3>
+      <p class="subtitle has-text-grey">aka: {{user.username}}</p>
 
-        <p>{{ user.email }}</p>
-        <p>
-          <a class="has-text-primary" :href="'http://' + user.website" target="_blank">{{ user.website }}</a>
-        </p>
+      <p>{{ user.email }}</p>
+      <p>
+        <a
+          class="has-text-primary"
+          :href="'http://' + user.website"
+          target="_blank"
+        >{{ user.website }}</a>
+      </p>
 
-        <GmapMap
-          class="user-location"
-          :center="{lat:Number(user.address.geo.lat), lng:Number(user.address.geo.lng)}"
-          :zoom="3"
-          map-type-id="terrain"
-        ></GmapMap>
-        <p class="is-size-7 has-text-danger">(The map will show error message decause Billing is not enabled for this Goolge Maps Api Key)</p>
-      </div>
-
-      <div class="column">
-        <h5 class="title is-5 has-text-grey">Posts by {{user.name}}</h5>
-
-        <PostsList :posts="posts" :users="{}"></PostsList>
-      </div>
+      <GmapMap
+        class="user-location"
+        :center="{lat:Number(user.address.geo.lat), lng:Number(user.address.geo.lng)}"
+        :zoom="3"
+        map-type-id="terrain"
+      ></GmapMap>
+      <p
+        class="is-size-7 has-text-danger"
+      >(The map will show error message decause Billing is not enabled for this Goolge Maps Api Key)</p>
     </div>
 
-    <div v-else class="column">
+    <div class="column">
+      <h5 class="title is-5 has-text-grey">Posts by {{user.name}}</h5>
+
+      <PostsList :posts="posts" :users="{}"></PostsList>
+    </div>
+  </div>
+
+  <div v-else class="columns">
+    <div class="column">
       <h4 class="title is-4 has-text-grey-light">Undefined User</h4>
     </div>
   </div>
@@ -68,6 +77,6 @@ export default {
   width: 100%;
   height: 300px;
   margin-top: 2rem;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 </style>
