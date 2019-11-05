@@ -75,6 +75,12 @@ export default {
       this.body = this.post.body;
     }
   },
+  data() {
+    return {
+      title: "",
+      body: ""
+    };
+  },
   computed: {
     ...mapGetters([
       "userById",
@@ -95,15 +101,6 @@ export default {
       return this.commentsByPostId(this.id);
     }
   },
-  filters: {
-    capitalize
-  },
-  data() {
-    return {
-      title: "",
-      body: ""
-    };
-  },
   methods: {
     updatePost: function() {
       store.dispatch(UPDATE_POST, {
@@ -112,6 +109,9 @@ export default {
         title: this.title
       });
     }
+  },
+  filters: {
+    capitalize
   }
 };
 </script>

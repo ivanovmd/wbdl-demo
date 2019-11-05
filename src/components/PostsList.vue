@@ -42,15 +42,16 @@ export default {
   name: "posts-list",
   props: ["posts", "users"],
   components: { Post },
-  created() {
-    this.localPosts = [...this.posts];
-  },
+
   data() {
     return {
       postsPage: 0,
       postsPerPage: 5,
       localPosts: []
     };
+  },
+  created() {
+    this.localPosts = [...this.posts];
   },
   computed: {
     visiblePosts() {

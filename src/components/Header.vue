@@ -26,6 +26,11 @@ import { mapGetters } from "vuex";
 import { GET_USERS, SET_CURRENT_USER } from "../store/actions.type";
 export default {
   name: "app-header",
+  data() {
+    return {
+      selectedUserId: ""
+    };
+  },
   created() {
     store.dispatch(GET_USERS).then(() => {
       this.selectedUserId = this.users[0].id
@@ -33,11 +38,6 @@ export default {
   },
   computed: {
     ...mapGetters(["users"])
-  },
-  data() {
-    return {
-      selectedUserId: ""
-    };
   },
   watch: {
     selectedUserId(value) {

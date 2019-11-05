@@ -2,7 +2,10 @@
 
 A a demo VueJS app. 
 Used https://jsonplaceholder.typicode.com/ API.
-You can change Logged in user to edit posts.
+
+You can change the logged in user in dropdown to edit posts at /posts/:id route.
+
+
 
 ## Project setup
 ```
